@@ -192,6 +192,7 @@ func TestParse(t *testing.T) {
 		{`exa://`, `exasol`, `exa:localhost:8563`, ``},
 		{`exa://user:pass@host:1883/dbname?autocommit=1`, `exasol`, `exa:host:1883;autocommit=1;password=pass;schema=dbname;user=user`, ``}, // 91
 		{"hazelcast://user:pass@host:6000?cluster.name=prod&cloud.token=1234567890", "hazelcast", "hz://user:pass@host:6000?cluster.name=prod&cloud.token=1234567890", ``},
+		{"hz://user:pass@host:6000?cluster.name=prod&cloud.token=1234567890", "hazelcast", "hz://user:pass@host:6000?cluster.name=prod&cloud.token=1234567890", ``},
 	}
 	for i, test := range tests {
 		u, err := Parse(test.s)
